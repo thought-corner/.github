@@ -24,8 +24,9 @@
 ## 📊 GitHub Stats
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=dnwls16071&show_icons=true&theme=default" height="165" />
+  <img src="https://github-readme-streak-stats.herokuapp.com/?user=dnwls16071&theme=default" alt="GitHub Streak" />
 </p>
+
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=dnwls16071&theme=default" />
+  <img src="https://github-readme-activity-graph.vercel.app/graph?username=dnwls16071&theme=github-light" alt="GitHub Activity Graph" />
 </p>
