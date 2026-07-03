@@ -16,8 +16,6 @@
 |------|--------|
 | 분산 트랜잭션(feat. Kotlin) | [kotlin-distributed-transactions](https://github.com/thought-corner/kotlin-distributed-transactions) |
 | 실시간 채팅 플랫폼(feat. Kotlin) | [realtime-chat-platform](https://github.com/thought-corner/realtime-chat-platform) |
-| 정산 배치(feat. Spring Batch) | [spring-batch-settlement](https://github.com/thought-corner/spring-batch-settlement) |
-| 디자인 패턴(feat. Java) | [object-oriented-programming-java](https://github.com/thought-corner/object-oriented-programming-java) |
 
 > 위 프로젝트들은 [@thought-corner](https://github.com/thought-corner) 조직에서 관리하고 있습니다.
 
