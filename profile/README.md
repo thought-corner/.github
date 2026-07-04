@@ -15,30 +15,30 @@
 ### 🏗️ 아키텍처
 | 주제 | 저장소 |
 |------|--------|
-| 분산 트랜잭션 (TCC/Saga/2PC, feat. Kotlin) | [distributed-transactions](https://github.com/thought-corner/distributed-transactions) |
-| 실시간 채팅 플랫폼 (WebSocket/Redis Pub-Sub, feat. Kotlin) | [realtime-chat-platform](https://github.com/thought-corner/realtime-chat-platform) |
-| 비동기 주문 시스템 (RabbitMQ/이벤트 드리븐) | [order-system](https://github.com/thought-corner/order-system) |
+| 분산 트랜잭션 | [distributed-transactions](https://github.com/thought-corner/distributed-transactions) |
+| 실시간 채팅 플랫폼 | [realtime-chat-platform](https://github.com/thought-corner/realtime-chat-platform) |
+| 비동기 주문 시스템 | [order-system](https://github.com/thought-corner/order-system) |
 
 ### 🔗 객체지향
 | 주제 | 저장소 |
 |------|--------|
-| 디미터 법칙 (결합도 낮추는 설계 원칙) | [law-of-demeter](https://github.com/thought-corner/law-of-demeter) |
+| 디미터 법칙 | [law-of-demeter](https://github.com/thought-corner/law-of-demeter) |
 
 ### 🌱 프레임워크
 | 주제 | 저장소 |
 |------|--------|
-| 정산 배치 처리 (Spring Batch) | [spring-batch-settlement](https://github.com/thought-corner/spring-batch-settlement) |
-| Spring AI + Ollama 로컬 챗봇 구현 | [spring-ai-chat-bot](https://github.com/thought-corner/spring-ai-chat-bot) |
+| 정산 배치 처리 | [spring-batch-settlement](https://github.com/thought-corner/spring-batch-settlement) |
+| RAG 챗봇 | [spring-ai-chat-bot](https://github.com/thought-corner/spring-ai-chat-bot) |
 
 ### 🔧 트러블슈팅
 | 주제 | 저장소 |
 |------|--------|
-| 대용량 데이터 조회 성능 개선 (MySQL/인덱스) | [query-performance](https://github.com/thought-corner/query-performance) |
+| 대용량 데이터 조회 성능 개선 | [query-performance](https://github.com/thought-corner/query-performance) |
 
 ### 🗺️ 전체
 | 주제 | 저장소 |
 |------|--------|
-| CS·인프라·서버 스택 전반 학습 로드맵 | [backend-roadmap](https://github.com/thought-corner/backend-roadmap) |
+| 백엔드 로드맵 | [backend-roadmap](https://github.com/thought-corner/backend-roadmap) |
 
 > 위 프로젝트들은 [@thought-corner](https://github.com/thought-corner) 조직에서 관리하고 있습니다.
 
