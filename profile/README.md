@@ -4,10 +4,34 @@
 부분이 아닌 전체 시스템의 상호작용 관점에서 문제를 바라봅니다.</p>
 
 <p align="center">
-  <img src="https://go-skill-icons.vercel.app/api/icons?i=kotlin,java,spring,springdatajpa,springbatch,junit"/>
+  <a href="https://go-skill-icons.vercel.app/">
+    <img src="https://go-skill-icons.vercel.app/api/icons?i=java,kotlin"/>
+  </a>
 </p>
 <p align="center">
-  <img src="https://go-skill-icons.vercel.app/api/icons?i=mysql,redis,kafka,rabbitmq,elasticsearch,docker,jenkins"/>
+  <a href="https://go-skill-icons.vercel.app/">
+    <img src="https://go-skill-icons.vercel.app/api/icons?i=spring,springsecurity,springdatajpa,springbatch,junit"/>
+  </a>
+</p>
+<p align="center">
+  <a href="https://go-skill-icons.vercel.app/">
+    <img src="https://go-skill-icons.vercel.app/api/icons?i=kafka,rabbitmq,grpc,graphql"/>
+  </a>
+</p>
+<p align="center">
+  <a href="https://go-skill-icons.vercel.app/">
+    <img src="https://go-skill-icons.vercel.app/api/icons?i=mysql,postgresql,redis,elasticsearch"/>
+  </a>
+</p>
+<p align="center">
+  <a href="https://go-skill-icons.vercel.app/">
+    <img src="https://go-skill-icons.vercel.app/api/icons?i=aws,docker,kubernetes,terraform"/>
+  </a>
+</p>
+<p align="center">
+  <a href="https://go-skill-icons.vercel.app/">
+    <img src="https://go-skill-icons.vercel.app/api/icons?i=jenkins,githubactions"/>
+  </a>
 </p>
 
 ---
