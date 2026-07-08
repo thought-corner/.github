@@ -79,7 +79,7 @@
 | Framework | [spring-batch-settlement](https://github.com/thought-corner/spring-batch-settlement) | 청크 기반 일별 정산 배치 — Reader/Processor/Writer 파이프라인, Jenkins + Docker 실행, Clock 주입으로 시간 의존성 제어 |
 | Framework | [spring-ai-chat-bot](https://github.com/thought-corner/spring-ai-chat-bot) | Spring AI RAG 챗봇 — Tika 인제스천→청킹→BGE-M3 임베딩→Elasticsearch 검색, 다중 쿼리 확장·대화 메모리 Advisor 구성 (로컬 Ollama LLM) |
 | OOP | [law-of-demeter](https://github.com/thought-corner/law-of-demeter) | 디미터 법칙·Tell-Don't-Ask 실습 — getter 없는 완전 캡슐화 도메인을 테스트 31개로 검증 |
-| Architecture | [monolithic](https://github.com/thought-corner/monolithic) | 헥사고날 아키텍처·DDD 실습 — 상품·장바구니·주문·결제를 포트&어댑터로 분리, Money/Quantity 값 객체와 Order 애그리거트로 도메인 규칙 캡슐화 |
+| Architecture | [monolithic-architecture](https://github.com/thought-corner/monolithic-architecture) | 헥사고날 아키텍처·DDD 실습 — 상품·장바구니·주문·결제를 포트&어댑터로 분리, Money/Quantity 값 객체와 Order 애그리거트로 도메인 규칙 캡슐화 |
 
 <p align="center">
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=dnwls16071&theme=github-light" alt="GitHub Activity Graph" />
