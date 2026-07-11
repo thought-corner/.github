@@ -76,10 +76,11 @@
 
 | 분류 | 저장소 | 한 줄 요약 |
 |--------|--------|-----------|
-| Framework | [spring-batch-settlement](https://github.com/thought-corner/spring-batch-settlement) | 청크 기반 일별 정산 배치 — Reader/Processor/Writer 파이프라인, Jenkins + Docker 실행, Clock 주입으로 시간 의존성 제어 |
-| Framework | [spring-ai-chat-bot](https://github.com/thought-corner/spring-ai-chat-bot) | Spring AI RAG 챗봇 — Tika 인제스천→청킹→BGE-M3 임베딩→Elasticsearch 검색, 다중 쿼리 확장·대화 메모리 Advisor 구성 (로컬 Ollama LLM) |
-| OOP | [law-of-demeter](https://github.com/thought-corner/law-of-demeter) | 디미터 법칙·Tell-Don't-Ask 실습 — getter 없는 완전 캡슐화 도메인을 테스트 31개로 검증 |
-| Architecture | [monolithic-architecture](https://github.com/thought-corner/monolithic-architecture) | 헥사고날 아키텍처·DDD 실습 — 상품·장바구니·주문·결제를 포트&어댑터로 분리, Money/Quantity 값 객체와 Order 애그리거트로 도메인 규칙 캡슐화 |
+| Framework | [spring-batch-settlement](https://github.com/thought-corner/spring-batch-settlement) | 매일 쌓이는 대량 거래를 재처리 가능하고 재현 가능하게 정산하는 문제 — 청크 기반 Reader/Processor/Writer로 대량 데이터를 나눠 처리하고, Clock 주입으로 시간 의존성을 제거해 정산 결과를 테스트로 고정. Jenkins + Docker로 실행 |
+| Framework | [spring-ai-chat-bot](https://github.com/thought-corner/spring-ai-chat-bot) | LLM이 모르는 사내 문서를 근거로 답하게(RAG) 하고 검색 품질을 끌어올리는 문제 - Tika 인제스천→청킹→BGE-M3 임베딩→Elasticsearch 검색 파이프라인에 다중 쿼리 확장으로 recall 보강, 대화 메모리 Advisor로 맥락 유지 (로컬 Ollama LLM) |
+| OOP | [law-of-demeter](https://github.com/thought-corner/law-of-demeter) | 메시지를 보내되 묻지 않는다(Tell-Don't-Ask)를 getter 없는 도메인으로 강제하고 테스트 31개로 캡슐화 회귀 방지 |
+| Architecture | [monolithic-architecture](https://github.com/thought-corner/monolithic-architecture) | 도메인 규칙을 어디에 둘지를 포트&어댑터·값 객체·애그리거트로 답한 헥사고날·DDD 실습 |
+| Architecture | [service-communication-patterns-with-rest-api](https://github.com/thought-corner/service-communication-patterns-with-rest-api) | 동기 REST로 분리한 서비스 사이의 장애 전파(cascading failure)를 서킷 브레이커 격리 + 폴백 degrade로 끊어 다운스트림 장애가 상위 서비스 가용성을 끌어내리지 않도록 설계한 MSA 통신 패턴 |
 
 <p align="center">
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=dnwls16071&theme=github-light" alt="GitHub Activity Graph" />
