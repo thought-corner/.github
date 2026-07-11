@@ -81,6 +81,7 @@
 | OOP | [law-of-demeter](https://github.com/thought-corner/law-of-demeter) | 메시지를 보내되 묻지 않는다(Tell-Don't-Ask)를 getter 없는 도메인으로 강제하고 테스트 31개로 캡슐화 회귀 방지 |
 | Architecture | [monolithic-architecture](https://github.com/thought-corner/monolithic-architecture) | 도메인 규칙을 어디에 둘지를 포트&어댑터·값 객체·애그리거트로 답한 헥사고날·DDD 실습 |
 | Architecture | [service-communication-patterns-with-rest-api](https://github.com/thought-corner/service-communication-patterns-with-rest-api) | 동기 REST로 분리한 서비스 사이의 장애 전파(cascading failure)를 서킷 브레이커 격리 + 폴백 degrade로 끊어 다운스트림 장애가 상위 서비스 가용성을 끌어내리지 않도록 설계한 MSA 통신 패턴 |
+| Architecture | [service-communication-patterns-with-graphql](https://github.com/thought-corner/service-communication-patterns-with-graphql) | 서비스 간 통신 계층만 REST → GraphQL로 교체하되 client-facing은 REST로 유지해 전송 계층의 경계를 나누고, 동기 결합은 그대로라 서킷 브레이커 격리를 존치하되 전송 방식 교체로 달라진 실패 판정 기준을 다시 세워 다운스트림 장애만 회로를 열도록 설계한 MSA 통신 패턴 |
 
 <p align="center">
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=dnwls16071&theme=github-light" alt="GitHub Activity Graph" />
