@@ -84,6 +84,4 @@
 | Architecture | [service-communication-patterns-with-graphql](https://github.com/thought-corner/service-communication-patterns-with-graphql) | 서비스 간 통신 계층만 REST → GraphQL로 교체하되 client-facing은 REST로 유지해 전송 계층의 경계를 나누고, 동기 결합은 그대로라 서킷 브레이커 격리를 존치하되 전송 방식 교체로 달라진 실패 판정 기준을 다시 세워 다운스트림 장애만 회로를 열도록 설계한 MSA 통신 패턴 |
 | Architecture | [service-communication-patterns-with-grpc](https://github.com/thought-corner/service-communication-patterns-with-grpc.git) | 동기 통신을 REST에서 gRPC blocking stub으로 전환하고, gRPC status(UNAVAILABLE·RESOURCE_EXHAUSTED) 기반 재시도를 서킷 브레이커와 한 계층으로 묶어, 재시도 소진 시 부가 조회는 200 degrade·필수 조회는 503+Retry-After로 종착 분기를 갈라 설계한 MSA 통신 패턴 |
 
-<p align="center">
-<img src="https://github-readme-activity-graph.vercel.app/graph?username=dnwls16071&theme=github-light" alt="GitHub Activity Graph" />
-</p>
+<img src="https://github-readme-activity-graph.vercel.app/graph?username=dnwls16071&theme=github-dark" alt="GitHub Activity Graph" />
