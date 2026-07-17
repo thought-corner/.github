@@ -111,5 +111,6 @@
 | Machine Learning | [spring-ai-chat-bot](https://github.com/thought-corner/spring-ai-chat-bot) | RAG 파이프라인으로 사내 문서 기반 응답 구현 — Tika→청킹→BGE-M3→Elasticsearch에 다중 쿼리 확장으로 recall 보강, 대화 메모리로 맥락 유지 (로컬 Ollama) |
 | Software Testing | [test-driven-development](https://github.com/thought-corner/test-driven-development.git) | outside-in TDD로 E-커머스 API 계약을 명세화 — 35개 통합 테스트로 회원가입·토큰·거래 입출력(상태코드·응답·JWT)을 @TddApiTest로 고정 |
 | Release Engineering | [deploy-to-s3-with-jenkins](https://github.com/thought-corner/deploy-to-s3-with-jenkins.git) | Jenkins 선언형 파이프라인으로 정적 사이트 배포 자동화 — Docker agent 격리·credential 주입·IAM 최소권한으로 s3 sync --delete 무중단 배포 |
+| Release Engineering | [deploy-to-ecs-with-jenkins](https://github.com/thought-corner/deploy-to-ecs-with-jenkins) | Jenkins 선언형 파이프라인으로 Spring Boot 컨테이너 ECS(Fargate) 배포 자동화 — 멀티스테이지 Docker 빌드·ECR push·jq로 task-def 이미지 주입 후 리비전 고정(빌드번호 태그)·`services-stable` 대기로 무중단 롤링 배포 |
 
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=dnwls16071&theme=github-dark" alt="GitHub Activity Graph" />
