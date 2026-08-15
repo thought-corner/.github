@@ -82,23 +82,4 @@
 - 시스템 변경 없는 SQL 튜닝을 먼저, 그 위에 Redis Cache-Aside를 얹어 **추가 45.7% 개선**
   (1.01s → 0.548s) — 캐시-DB 정합성 한계까지 문서화
 
-## 🧪 Playground
-
-| 분류 | 저장소 | 한 줄 요약 | BACKLOG & FIX |
-|--------|--------|-----------|-----------|
-| Software Design | [law-of-demeter](https://github.com/thought-corner/law-of-demeter) | Tell-Don't-Ask로 getter를 제거한 캡슐화 도메인 설계 — 협력을 메시지로 강제하고 테스트 31개로 회귀 방지 |  |
-| Software Design | [monolithic-architecture](https://github.com/thought-corner/monolithic-architecture) | 헥사고날·DDD로 도메인 경계를 분리한 설계 — 포트&어댑터·값 객체·애그리거트로 규칙의 위치를 명확화 |  |
-| Software Architecture | [kafka](https://github.com/thought-corner/kafka) | Kafka 주문 이벤트 파이프라인을 단계적으로 견고화 — 이중 쓰기 문제를 트랜잭셔널 아웃박스로 해결 후 폴링 릴레이 → Debezium CDC 로그 릴레이로 진화, 멱등 컨슈머·DLT·백오프 태스크 큐로 정확히 1회 처리 보장, JSON → Avro 전환(Schema Registry·와이어 포맷 bytea 무변환 통과), Kafka Streams 집계(이벤트 타임·EOS·Interactive Query), Testcontainers E2E 검증 | • [Outbox](https://github.com/thought-corner/kafka/issues/2)<br>• [Kafka Streams](https://github.com/thought-corner/kafka/issues/5)<br>• [Avro 전환](https://github.com/thought-corner/kafka/issues/7)<br>• [CDC 릴레이](https://github.com/thought-corner/kafka/issues/9)<br>• **[BACKLOG(K6 스크립트를 통한 부하 테스트](https://github.com/thought-corner/kafka/issues/10)** |
-| Software Architecture | [distributed-transactions](https://github.com/thought-corner/distributed-transactions) | 분산 트랜잭션 정합성 패턴을 단계적으로 구현 — 단일 ACID → TCC → Saga(Choreography, Kafka) → Saga(Orchestration)로 진화시키며, requestId 멱등성 체크·Redis 분산락·주문 상태머신으로 "정확히 1회 실행" 보장, @Version 낙관적 잠금 + @Retryable 재시도, Kafka afterCommit()으로 유령 이벤트 차단, Testcontainers E2E 검증 | **[FIX(monolithic)](https://github.com/thought-corner/distributed-transactions/issues/1)** |
-| Software Architecture | [realtime-chat-platform](https://github.com/thought-corner/realtime-chat-platform) | Kotlin·STOMP WebSocket 실시간 채팅 — 다중 인스턴스 환경에서 SimpleBroker 한계를 Redis Pub/Sub 채널 릴레이로 해소해 수평 확장, JWT를 STOMP 채널 인터셉터에서 인증, 메시지 읽음 상태 저장·실시간 전파 |  |
-| Software Architecture | [service-communication-patterns-with-rest-api](https://github.com/thought-corner/service-communication-patterns-with-rest-api) | 서킷 브레이커·폴백 degrade로 장애 전파를 격리한 MSA 통신 설계 — 다운스트림 장애가 상위 가용성을 침범하지 않도록 방어 | |
-| Software Architecture | [service-communication-patterns-with-graphql](https://github.com/thought-corner/service-communication-patterns-with-graphql) | client-facing REST + 서비스 간 GraphQL로 전송 계층을 분리 — 통신 방식 교체에도 서킷 브레이커로 실패 판정 기준을 일관 유지 |  |
-| Software Architecture | [service-communication-patterns-with-grpc](https://github.com/thought-corner/service-communication-patterns-with-grpc.git) | gRPC blocking stub 전환과 status 기반 서킷 브레이킹 — 재시도 소진 시 부가 조회 200 degrade·필수 조회 503+Retry-After로 종착 분기 설계 |  |
-| Data Engineering | [spring-batch-settlement](https://github.com/thought-corner/spring-batch-settlement) | 청크 기반 배치로 대량 거래를 재처리·재현 가능하게 정산 — Clock 주입으로 시간 의존성을 제거해 결과를 테스트로 고정 (Jenkins+Docker) |  |
-| Machine Learning | [spring-ai-chat-bot](https://github.com/thought-corner/spring-ai-chat-bot) | RAG 파이프라인으로 사내 문서 기반 응답 구현 — Tika→청킹→BGE-M3→Elasticsearch에 다중 쿼리 확장으로 recall 보강, 대화 메모리로 맥락 유지 (로컬 Ollama) |  |
-| Software Testing | [test-driven-development](https://github.com/thought-corner/test-driven-development.git) | outside-in TDD로 E-커머스 API 계약을 명세화 — 35개 통합 테스트로 회원가입·토큰·거래 입출력(상태코드·응답·JWT)을 @TddApiTest로 고정 |  |
-| Release Engineering | [deploy-to-s3-with-jenkins](https://github.com/thought-corner/deploy-to-s3-with-jenkins.git) | Jenkins 선언형 파이프라인으로 정적 사이트 배포 자동화 — Docker agent 격리·credential 주입·IAM 최소권한으로 s3 sync --delete 무중단 배포 |  |
-| Release Engineering | [deploy-to-ecs-with-jenkins](https://github.com/thought-corner/deploy-to-ecs-with-jenkins) | Jenkins 선언형 파이프라인으로 Spring Boot 컨테이너 ECS(Fargate) 배포 자동화 — 멀티스테이지 Docker 빌드·ECR push·jq로 task-def 이미지 주입 후 리비전 고정(빌드번호 태그)·`services-stable` 대기로 무중단 롤링 배포 | **[BACKLOG(Application Load Balancer)](https://github.com/thought-corner/deploy-to-ecs-with-jenkins/issues/1)** |
-| Observability | [elk-prometheus-grafana-monitoring](https://github.com/thought-corner/elk-prometheus-grafana-monitoring) | ELK로 로그 수집, Prometheus·Grafana로 메트릭 관측 — 특정 예외에 대해 Discord 알림을 `pending period`·`increase` 시간창까지 맞춰 오탐 없이 발화 |  |
-
 <img src="https://github-readme-activity-graph.vercel.app/graph?username=dnwls16071&theme=github-dark" alt="GitHub Activity Graph" />
