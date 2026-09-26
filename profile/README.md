@@ -81,6 +81,13 @@
 - 응답이 늦어 포기한 결제가 환불 처리보다 늦게 도착하면 자동으로 거절해, 환불된 주문에 돈이 다시 빠져나가지 않도록 차단
 - 돈과 재고는 정확히 정리됐지만 사용자에게는 결제 실패로 보이는 사례 1건을 발견해 한계로 기록
 
+### [oms-system-design](https://github.com/thought-corner/oms-system-design/releases/tag/v2.0.0) - 주문 도메인 MSA 분산 트랜잭션(Saga Orchestration)
+
+> **커피 주문 앱에서 결제가 여러 번 빠져나가고, 고객센터에 문의한 뒤에야 한참 늦게 환불된 경험에서 시작했습니다.**
+> **주문·재고·포인트·결제 4개 서비스의 Saga를 동기 HTTP로 먼저 만들고, 결제 3초 동안 스레드가 묶이고 참여자가 잠깐만 죽어도 결제가 실패하는 한계를 Kafka + Outbox로 바꿔 풀었습니다.**
+- 메시지 재수신·잘못된 메시지·브로커 한 대 다운·승인 대기 중 취소 등 **장애 13가지를 일으켜 확인** - 메시지 순서가 아니라 사가별 잠금 한 행으로 정방향과 취소를 줄 세워 **중복 결제 0건, "실패 + 결제됨" 주문 0건 달성**
+- 목표 부하에서 결제가 밀리는 원인을 **트랜잭션 안의 승인 대기**로 찾아 밖으로 옮기고 파티션을 거꾸로 계산해 늘려, **완료 중앙값 48.5초 → 5.6초, 멈춤 감지 재발행 137회 → 0회, 720건 모두 재고·포인트 차감과 결제가 주문당 한 번씩만 반영**
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=dnwls16071&show_icons=true&include_all_commits=true&rank_icon=github&hide_border=true&theme=github_dark">
   <img src="https://github-stats-extended.vercel.app/api?username=dnwls16071&show_icons=true&include_all_commits=true&rank_icon=github&hide_border=true&theme=default" alt="Jang Woo's GitHub stats">
