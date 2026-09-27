@@ -88,6 +88,15 @@
 - 메시지 재수신·잘못된 메시지·브로커 한 대 다운·승인 대기 중 취소 등 **장애 13가지를 일으켜 확인** - 메시지 순서가 아니라 사가별 잠금 한 행으로 정방향과 취소를 줄 세워 **중복 결제 0건, "실패 + 결제됨" 주문 0건 달성**
 - 목표 부하에서 결제가 밀리는 원인을 **트랜잭션 안의 승인 대기**로 찾아 밖으로 옮기고 파티션을 거꾸로 계산해 늘려, **완료 중앙값 48.5초 → 5.6초, 멈춤 감지 재발행 137회 → 0회, 720건 모두 재고·포인트 차감과 결제가 주문당 한 번씩만 반영**
 
+### [bbs-system-design](https://github.com/thought-corner/bbs-system-design/releases/tag/v1.1.0) - 대규모 트래픽 게시판
+
+> **"트래픽이 몰리는 B2C 서비스를 가정해 무엇이 먼저 무너질까"라는 질문에서 출발해, 상세 조회 초당 10만 건·게시글 10억 건을 전제로 게시판을 설계했습니다**
+> **샤드 키를 벗어나지 않는 쿼리, 쓰기와 분리한 CQRS 읽기 모델, 멱등 이벤트 소비로 설계하고, 그 설계가 실제 부하에서도 맞는지 AWS에 올려 1,000만 건 규모로 검증했습니다.**
+- 게시글·댓글·좋아요 각 1,000만 건에서 **상세 조회 초당 4,000건, 실패 0건, p99 22ms, 읽기 모델 적중률 99.8% 달성**
+- 쓰기 초당 800건에서 **이벤트 발행 초당 75건 → 240건, outbox 적체 19,164건 → 6건, 읽기 모델 반영 지연 p95 30초 이상 → 27ms** - Snowflake ID 하위 비트 문제로 모든 이벤트를 쓰레드 하나로 보내던 결함을 해시 분산과 비동기 전송으로 해결
+- 쓰기 **28만 건 뒤 표본 1,000개의 원본·읽기 모델 불일치 0건 달성**
+- 한 글에 좋아요·조회 **각 2만 건을 동시에 몰아도 유실·중복 0건 달성**
+
 <picture>
   <source media="(prefers-color-scheme: dark)" srcset="https://github-stats-extended.vercel.app/api?username=dnwls16071&show_icons=true&include_all_commits=true&rank_icon=github&hide_border=true&theme=github_dark">
   <img src="https://github-stats-extended.vercel.app/api?username=dnwls16071&show_icons=true&include_all_commits=true&rank_icon=github&hide_border=true&theme=default" alt="Jang Woo's GitHub stats">
