@@ -56,23 +56,23 @@
 - **변화에 견디는 구조** - 지금 필요하지 않은 유연성을 미리 만드는 쪽보다, 실제로 바뀔 때 바꿀 수 있는 구조.
 - **문제의 본질** - 새로운 기술 자체보다 그 기술이 풀려는 문제. 도구는 계속 바뀌지만 문제는 잘 바뀌지 않아서, 특정 스택보다 원리를 이해하는 데 시간을 씁니다.
 
-## 🏗️ Toy Projects
+## 🏗️ Projects
 
-### [order-system](https://github.com/thought-corner/order-system) - RabbitMQ 비동기 주문 시스템
+### [order-system](https://github.com/thought-corner/order-system) - 비동기 주문 시스템(RabbitMQ)
 
 > **주문 API가 메시지 발행 즉시 응답하고, 컨슈머가 재고 차감·주문 생성을 처리하는 구조입니다.**
 - MySQL Named Lock(주문 단위) + JPA 비관적 락(재고 단위) 이중 락으로 동시성 제어
 - **k6 부하 테스트: 4,000 VUs에서 TPS 2.23k, 실패 0건, 재고 정합성 오차 0** 실측 기록
 - Dead Letter Queue + 재발행으로 실패 메시지 유실 방지, prefetch·컨슈머 수 튜닝 과정 문서화
 
-### [query-performance](https://github.com/thought-corner/query-performance) - 대용량 조회 성능 개선(SQL 튜닝 → Redis 캐싱)
+### [query-performance](https://github.com/thought-corner/query-performance) - 대용량 조회 성능 개선(SQL 튜닝 → Redis 캐싱을 통한 단계적 개선)
 
 > **30만 건 데이터에서 풀 테이블 스캔으로 최대 14초 걸리던 필터링 조회를 단계적으로 개선했습니다.**
 - EXPLAIN으로 풀 테이블 스캔(type: ALL) 확인 → 가격 인덱스 적용으로 조회 시간**70.5% 단축**(1s → 0.295s)
 - **인덱스를 생성했는데도 동작하지 않던 원인 분석** — 낮은 카디널리티(LocalDate 일 단위 저장 + 중복도 높은 더미 데이터)로 옵티마이저가 인덱스를 버리는 상황을 규명하고, 타입·데이터 분포를 바로잡아 **82.25% 단축** (2s → 0.355s)
 - 시스템 변경 없는 SQL 튜닝을 먼저, 그 위에 Redis Cache-Aside를 얹어 **추가 45.7% 개선**(1.01s → 0.548s) — 캐시-DB 정합성 한계까지 문서화
 
-### [oms-system-design](https://github.com/thought-corner/oms-system-design/releases/tag/v1.0.0) - 주문 도메인 MSA 분산 트랜잭션(Saga Orchestration)
+### [oms-system-design](https://github.com/thought-corner/oms-system-design/releases/tag/v1.0.0) - 주문 도메인 MSA 분산 트랜잭션(Saga Orchestration Based HTTP 통신)
 
 > **커피 주문 앱에서 결제가 여러 번 빠져나가고, 고객센터에 문의한 뒤에야 한참 늦게 환불된 경험에서 시작했습니다.**
 > **주문·재고·포인트·결제를 4개의 서비스로 나눴을 때, 어디서 실패하든 돈과 재고가 정확히 맞게 끝나도록 Saga를 설계하고 장애를 직접 일으켜 검증했습니다.**
@@ -81,7 +81,7 @@
 - 응답이 늦어 포기한 결제가 환불 처리보다 늦게 도착하면 자동으로 거절해, 환불된 주문에 돈이 다시 빠져나가지 않도록 차단
 - 돈과 재고는 정확히 정리됐지만 사용자에게는 결제 실패로 보이는 사례 1건을 발견해 한계로 기록
 
-### [oms-system-design](https://github.com/thought-corner/oms-system-design/releases/tag/v2.0.0) - 주문 도메인 MSA 분산 트랜잭션(Saga Orchestration)
+### [oms-system-design](https://github.com/thought-corner/oms-system-design/releases/tag/v2.0.0) - 주문 도메인 MSA 분산 트랜잭션(Saga Orchestration Based Kafka + Outbox)
 
 > **커피 주문 앱에서 결제가 여러 번 빠져나가고, 고객센터에 문의한 뒤에야 한참 늦게 환불된 경험에서 시작했습니다.**
 > **주문·재고·포인트·결제 4개 서비스의 Saga를 동기 HTTP로 먼저 만들고, 결제 3초 동안 스레드가 묶이고 참여자가 잠깐만 죽어도 결제가 실패하는 한계를 Kafka + Outbox로 바꿔 풀었습니다.**
