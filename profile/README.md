@@ -19,9 +19,9 @@
   </a>
 </p>
 <p align="center">
-  <a href="https://go-skill-icons.vercel.app/">
-    <img src="https://go-skill-icons.vercel.app/api/icons?i=mysql,postgresql,redis"/>
-  </a>
+  <img src="https://go-skill-icons.vercel.app/api/icons?i=mysql,postgresql,redis"/>
+  &nbsp;
+  <img src="https://cdn.simpleicons.org/opensearch/005EB8" width="48" height="48" alt="OpenSearch" title="OpenSearch"/>
 </p>
 <p align="center">
   <a href="https://go-skill-icons.vercel.app/">
